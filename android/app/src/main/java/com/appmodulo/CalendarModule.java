@@ -28,7 +28,7 @@ public class CalendarModule extends ReactContextBaseJavaModule {
             Integer eventId = 1234 ;
             promise.resolve(eventId);
         } catch(Exception e) {
-            promise.reject("Create Event Error", e);
+            promise.reject("Erro ao criar esse evento", e);
         }
     }
 }
