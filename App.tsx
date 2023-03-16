@@ -4,12 +4,29 @@ const { CalendarModule } = NativeModules;
 
 console.log(CalendarModule)
 
+
 export default function App() {
 
-  function handleModulo() {
+  const handleModulo = async () => {
     console.log('Acessando...')
     console.log({ NativeModules })
-    CalendarModule.createCalendarEvent("Bruno staine", "Brasilia");
+    // CalendarModule.createCalendarEvent("Bruno staine", "Brasilia", (err: any, eventId: any) => {
+    //   if (err) {
+    //     console.error(`Error found! ${err}`);
+    //   }
+
+    //   console.log(`Criando um novo evento com a credencial id: ${eventId}`);
+    // });
+
+    try {
+      const eventId = await CalendarModule.createCalendarEvent(
+        'Festa',
+        'Minha casa',
+      );
+      console.log(`Criado um novo evento de id ${eventId}`);
+    } catch (e) {
+      console.error(e);
+    }
   }
 
 
