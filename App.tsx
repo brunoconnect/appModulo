@@ -1,12 +1,18 @@
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, NativeModules } from 'react-native';
+
+const { CalendarModule } = NativeModules;
+
+console.log(CalendarModule)
 
 export default function App() {
 
-  function handleModulo(){
+  function handleModulo() {
     console.log('Acessando...')
+    console.log({ NativeModules })
+    CalendarModule.createCalendarEvent("Bruno staine", "Brasilia");
   }
 
-  
+
   return (
     <View style={styles.container}>
       <Text style={styles.textPrincipal}>App Modulo Nativo</Text>
